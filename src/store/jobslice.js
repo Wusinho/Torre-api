@@ -1,9 +1,8 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
-import { createSelector } from 'reselect';
-import { apiCallBegan, champCallBegan } from './apiCall';
+import { apiCallBegan } from './apiCall';
 
-export const champSlice = createSlice({
+export const jobsSlice = createSlice({
   name: 'Jobs',
   initialState: {
     loading: false,

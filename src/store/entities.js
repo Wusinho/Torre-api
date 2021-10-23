@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import jobReducer from './job';
-import userReducer from './user';
+import jobReducer from './jobslice';
+import userReducer from './userslice';
 
 
 export default combineReducers({

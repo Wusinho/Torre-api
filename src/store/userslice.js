@@ -2,7 +2,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { userInfoCallBegan } from './apiCall';
 
-export const champSlice = createSlice({
+export const userSlice = createSlice({
   name: 'user',
   initialState: {
     loading: false,
