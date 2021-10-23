@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+// import { Redirect } from 'react-router-dom';
+import { loaduser } from '../store/userslice'
 
 import Loading from './Loading';
 
 const Registration = () => {
   const [data, setData] = useState('');
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const handleChange = (e) => {
     setData(e.target.value)
   };
 
   const handleSubmit = (e) => {
-    console.log(data)
+    dispatch(loaduser(data))
     e.preventDefault();
   };
 

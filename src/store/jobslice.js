@@ -32,10 +32,6 @@ export const {
 
 export default jobsSlice.reducer;
 
-export const selectCategory = (state) => state.entities.champs.category;
-export const selectChamp = (state) => state.entities.champs.selected;
-export const selectTag = (state) => state.entities.champs.champTags;
-
 const url = 'https://torre.co/api/suite/opportunities/';
 
 export const loadJobs = (id) => apiCallBegan({

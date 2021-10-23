@@ -16,15 +16,13 @@ const userAppointments = ({ dispatch }) => (next) => (action) => {
   const formated_name = name.replace(/ /g,'').toLowerCase()
 
   const headers = {
-    Authorization: `Bearer ${token}`,
+    headers : 'Access-Control-Allow-Origin: *',
   };
 
   axios
     .get(
       `${url}${formated_name}`,
-      {
-        headers: headers,
-      },
+        headers,
       { mode: 'cors' },
     )
     .then((response) => {

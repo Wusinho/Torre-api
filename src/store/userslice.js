@@ -7,6 +7,7 @@ export const userSlice = createSlice({
   initialState: {
     loading: false,
     list: {},
+    error: '',
   },
   reducers: {
     userRequested: (user) => {
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
     },
     userRequestFailed: (user) => {
       user.loading = false;
+      user.error = action.payload;
     },
 
   },
@@ -31,10 +33,6 @@ export const {
 } = userSlice.actions;
 
 export default userSlice.reducer;
-
-export const selectCategory = (state) => state.entities.champs.category;
-export const selectChamp = (state) => state.entities.champs.selected;
-export const selectTag = (state) => state.entities.champs.champTags;
 
 const url = 'https://bio.torre.co/api/bios/';
 
