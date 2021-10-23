@@ -9,7 +9,7 @@ const devConfig = {
   mode: 'development',
   devServer: {
     port: 3001,
-    contentBase: '../dist',
+    static: '../dist',
     open: 'google-chrome',
     hot: true,
     historyApiFallback: true
