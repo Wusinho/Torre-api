@@ -17,9 +17,9 @@ export const userSlice = createSlice({
       user.list = action.payload;
       user.loading = false;
     },
-    userRequestFailed: (user) => {
-      user.loading = false;
+    userRequestFailed: (user, action) => {
       user.error = action.payload;
+      user.loading = false;
     },
 
   },

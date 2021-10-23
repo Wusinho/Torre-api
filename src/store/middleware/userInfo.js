@@ -7,15 +7,16 @@ const userAppointments = ({ dispatch }) => (next) => (action) => {
   if (action.type !== actions.userInfoCallBegan.type) return next(action);
 
   const {
-    url,name, token, onStart, onSuccess, onError,
+    url,name, onStart, onSuccess, onError,
   } = action.payload;
 
   if (onStart) dispatch({ type: onStart });
   next(action);
 
   const formated_name = name.replace(/ /g,'').toLowerCase()
-
+  console.log(`${url}${formated_name}`)
   const headers = {
+
     headers : 'Access-Control-Allow-Origin: *',
   };
 
@@ -23,6 +24,9 @@ const userAppointments = ({ dispatch }) => (next) => (action) => {
     .get(
       `${url}${formated_name}`,
         headers,
+        // {
+        //   headers: headers,
+        // },
       { mode: 'cors' },
     )
     .then((response) => {

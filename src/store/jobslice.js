@@ -19,7 +19,6 @@ export const jobsSlice = createSlice({
     jobsRequestFailed: (jobs) => {
       jobs.loading = false;
     },
-
   },
 });
 
