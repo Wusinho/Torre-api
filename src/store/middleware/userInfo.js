@@ -7,11 +7,13 @@ const userAppointments = ({ dispatch }) => (next) => (action) => {
   if (action.type !== actions.userInfoCallBegan.type) return next(action);
 
   const {
-    url, token, onStart, onSuccess, onError,
+    url,name, token, onStart, onSuccess, onError,
   } = action.payload;
 
   if (onStart) dispatch({ type: onStart });
   next(action);
+
+  const formated_name = name.replace(/ /g,'').toLowerCase()
 
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -19,7 +21,7 @@ const userAppointments = ({ dispatch }) => (next) => (action) => {
 
   axios
     .get(
-      // `${url}userInfos`,
+      `${url}${formated_name}`,
       {
         headers: headers,
       },
