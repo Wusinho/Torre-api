@@ -2,7 +2,7 @@ import axios from 'axios';
 import * as actions from '../apiCall';
 
 // eslint-disable-next-line consistent-return
-const api = ({ dispatch }) => (next) => (action) => {
+const jobInfo = ({ dispatch }) => (next) => (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
 
   const {url, id, onStart, onSuccess, onError } = action.payload;
@@ -24,4 +24,4 @@ const api = ({ dispatch }) => (next) => (action) => {
     });
 };
 
-export default api;
+export default jobInfo;

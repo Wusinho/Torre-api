@@ -34,11 +34,12 @@ export const {
 
 export default userSlice.reducer;
 
-const url = 'https://bio.torre.co/api/bios/';
+// const url = 'https://bio.torre.co/api/bios/';
+const url = 'http://localhost:3000/apireq?name=';
 
-export const loaduser = (name) => userInfoCallBegan({
+export const loaduser = (username) => userInfoCallBegan({
   url,
-  name,
+  username,
   onStart: userRequested.type,
   onSuccess: userReceived.type,
   onError: userRequestFailed.type,

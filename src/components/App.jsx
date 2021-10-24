@@ -3,8 +3,7 @@ import { Provider } from 'react-redux';
 import store from '../store/configureStore'
 import UserSubmit from './UserSubmit'
 
-const App = () => {
-  return (
+const App = () => (
     <Provider store={store}>
       <div>
         <UserSubmit/>
@@ -12,7 +11,6 @@ const App = () => {
       </div>
 
     </Provider>
-  )
-}
+);
 
 export default App
