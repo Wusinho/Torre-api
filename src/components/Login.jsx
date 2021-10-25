@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
+import {
+  signIn,
+  selectIsLoggedIn,
+  isloading,
+} from '../store/sessionSlice';
 import Loading from './Loading';
 import '../style/Login.scss'
 
@@ -11,6 +16,9 @@ const Login = () => {
     username: '',
     password: '',
   });
+
+  const loggedIn = useSelector(selectIsLoggedIn);
+  const loadginStat = useSelector(isloading);
 
   const handleChange = (e) => {
     setData({
