@@ -31,7 +31,8 @@ export const {
 
 export default jobsSlice.reducer;
 
-const url = 'https://torre.co/api/suite/opportunities/';
+// const url = 'https://torre.co/api/suite/opportunities/';
+const url = 'http://localhost:3000/jobreq?id=';
 
 export const loadJobs = (id) => apiCallBegan({
   url,

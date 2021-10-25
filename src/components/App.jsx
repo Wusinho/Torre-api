@@ -1,16 +1,26 @@
 import React from 'react'
 import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import store from '../store/configureStore'
+import Home from './Home';
 import UserSubmit from './UserSubmit'
+import Registration from './Registration';
+import Login from './Login'
+import Nav from './Nav';
 
 const App = () => (
-    <Provider store={store}>
+  <Provider store={store}>
+    <Router>
       <div>
-        <UserSubmit/>
-
+        <Nav />
+        <Switch>
+          <Route path="/" exact component={Login} />
+          <Route exact path="/registration" component={Registration} />
+          <Route exact path="/usersubmit" component={UserSubmit} />
+        </Switch>
       </div>
-
-    </Provider>
+    </Router>
+  </Provider>
 );
 
 export default App

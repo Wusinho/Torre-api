@@ -35,7 +35,7 @@ export const {
 export default userSlice.reducer;
 
 // const url = 'https://bio.torre.co/api/bios/';
-const url = 'http://localhost:3000/apireq?name=';
+const url = 'http://localhost:3000/strengths?name=';
 
 export const loaduser = (username) => userInfoCallBegan({
   url,

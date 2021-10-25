@@ -11,10 +11,15 @@ const jobInfo = ({ dispatch }) => (next) => (action) => {
   next(action);
 
   axios
-    .get(
+    .post(
       `${url}${id}`,
-      { mode: 'cors' })
-    .then((response) => {
+      // {
+      //   headers: {
+      //     'Access-Control-Allow-Origin': '*',
+      //   }
+      // },
+    // { mode: 'cors'},
+    ).then((response) => {
       dispatch(actions.apiCallSuccess(response.data));
       if (onSuccess) dispatch({ type: onSuccess, payload: response.data });
     })
