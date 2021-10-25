@@ -53,9 +53,7 @@ export const selectCurrentUser = (state) => state.entities.session.user;
 export const selectCurrentUserToken = (state) => state.entities.session.token;
 export const selectIsLoggedIn = (state) => state.entities.session.isLoggedIn;
 export const ifError = (state) => state.entities.session.error;
-export const selectCoachList = (state) => state.entities.session.coachList;
 export const isloading = (state) => state.entities.session.loading;
-export const selectAppointments = (state) => state.entities.session.usersAppointments;
 export const {
   logOut,
   regRequested,

@@ -5,7 +5,9 @@ import store from '../store/configureStore'
 import UserSubmit from './UserSubmit'
 import Registration from './Registration';
 import Login from './Login'
+import Home from './Home';
 import Nav from './Nav';
+import '../style/App.scss'
 
 const App = () => (
   <Provider store={store}>
