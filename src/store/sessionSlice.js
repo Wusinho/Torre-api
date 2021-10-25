@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import {
   regCallBegan,
   sessionCallBegan,
-} from './api';
+} from './apiCall';
 
 export const sessionSlice = createSlice({
   name: 'session',

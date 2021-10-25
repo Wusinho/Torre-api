@@ -1,5 +1,5 @@
 import axios from 'axios';
-import * as actions from '../api';
+import * as actions from '../apiCall';
 
 // eslint-disable-next-line consistent-return
 const registration = ({ dispatch }) => (next) => (action) => {
