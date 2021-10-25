@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Redirect, Link } from 'react-router-dom';
 import Loading from './Loading';
 import '../style/Login.scss'
 
@@ -24,7 +25,7 @@ const Login = () => {
   };
 
   if (loggedIn) {
-    return <Redirect to="/champs" />;
+    return <Redirect to="/usersubmit" />;
   }
 
   return (
@@ -58,7 +59,7 @@ const Login = () => {
               />
             </label>
           </div>
-          { error && <h2>{error}</h2>}
+          {/* { error && <h2>{error}</h2>} */}
           {
             loadginStat
               ? <Loading />

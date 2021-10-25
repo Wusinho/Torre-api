@@ -1,14 +1,24 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import {
+  register,
+  selectIsLoggedIn,
+  isloading,
+} from '../store/sessionSlice';
 import Loading from './Loading';
 
 const Registration = () => {
   const [data, setData] = useState({
     username: '',
+    name: '',
+    lastname: '',
     password: '',
     password_confirmation: '',
   });
+
+  const loggedIn = useSelector(selectIsLoggedIn);
+  const loadginStat = useSelector(isloading);
 
   const dispatch = useDispatch();
 
@@ -47,6 +57,32 @@ const Registration = () => {
             </label>
           </div>
           <div className="mb-3">
+            <label htmlFor="name">
+              Name
+              <input
+                type="text"
+                name="name"
+                placeholder="name"
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </label>
+          </div>
+          <div className="mb-3">
+            <label htmlFor="lastname">
+              Lastname
+              <input
+                type="text"
+                name="lastname"
+                placeholder="lastname"
+                onChange={handleChange}
+                className="form-control"
+                required
+              />
+            </label>
+          </div>
+          <div className="mb-3">
             <label htmlFor="password">
               Password
               <input
@@ -72,7 +108,7 @@ const Registration = () => {
               />
             </label>
           </div>
-          { error && <h2>{error}</h2>}
+          {/* { error && <h2>{error}</h2>} */}
           {
             loadginStat
               ? <Loading />
