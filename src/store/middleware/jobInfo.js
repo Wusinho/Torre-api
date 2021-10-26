@@ -5,20 +5,26 @@ import * as actions from '../apiCall';
 const jobInfo = ({ dispatch }) => (next) => (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
 
-  const {url, id, onStart, onSuccess, onError } = action.payload;
+  const {url, id, token, onStart, onSuccess, onError } = action.payload;
 
   if (onStart) dispatch({ type: onStart });
   next(action);
 
+  const headers = {
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
+  };
+
   axios
     .post(
-      `${url}${id}`,
-      // {
-      //   headers: {
-      //     'Access-Control-Allow-Origin': '*',
-      //   }
-      // },
-    // { mode: 'cors'},
+      `${url}`,
+      {
+      job: id
+      },
+      {
+        headers: headers
+      },
+    { mode: 'cors'},
     ).then((response) => {
       dispatch(actions.apiCallSuccess(response.data));
       if (onSuccess) dispatch({ type: onSuccess, payload: response.data });

@@ -7,6 +7,7 @@ export const jobsSlice = createSlice({
   initialState: {
     loading: false,
     list: {},
+    error: ''
   },
   reducers: {
     jobsRequested: (jobs) => {
@@ -16,7 +17,8 @@ export const jobsSlice = createSlice({
       jobs.list = action.payload;
       jobs.loading = false;
     },
-    jobsRequestFailed: (jobs) => {
+    jobsRequestFailed: (jobs, action) => {
+      jobs.error = action.payload;
       jobs.loading = false;
     },
   },
@@ -32,11 +34,12 @@ export const {
 export default jobsSlice.reducer;
 
 // const url = 'https://torre.co/api/suite/opportunities/';
-const url = 'http://localhost:3000/jobreq?id=';
+const url = 'http://localhost:3000/job';
 
-export const loadJobs = (id) => apiCallBegan({
+export const loadJobs = (id,token) => apiCallBegan({
   url,
   id,
+  token,
   onStart: jobsRequested.type,
   onSuccess: jobsReceived.type,
   onError: jobsRequestFailed.type,

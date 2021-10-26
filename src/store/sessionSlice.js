@@ -65,8 +65,8 @@ export const {
 } = sessionSlice.actions;
 export default sessionSlice.reducer;
 
-const url = 'https://enigmatic-sierra-93966.herokuapp.com/';
-// const url = 'http://localhost:3000/';
+// const url = 'https://enigmatic-sierra-93966.herokuapp.com/';
+const url = 'http://localhost:3000/';
 
 export const register = (data) => regCallBegan({
   url,

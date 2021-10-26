@@ -1,66 +1,57 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-// import { Redirect } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { loaduser } from '../store/userslice'
-import { loadJobs } from '../store/jobslice'
-import axios from 'axios';
-
-
+import { loadJobs } from '../store/jobslice';
+import { Redirect } from 'react-router-dom';
+import {
+  selectIsLoggedIn,
+  isloading,
+  selectCurrentUser,
+  selectCurrentUserToken,
+} from '../store/sessionSlice';
 import Loading from './Loading';
 
 const UserSubmit = () => {
-  const [data, setData] = useState('');
-  const [job, setJob] = useState('');
+  const [id, setId] = useState('');
 
   const dispatch = useDispatch();
 
+  const token = useSelector(selectCurrentUserToken);
+  const loggedIn = useSelector(selectIsLoggedIn);
+  const loadginStat = useSelector(isloading);
+  const currentUser = useSelector(selectCurrentUser);
+
+  useEffect(() => {
+    if (loggedIn ) {
+      dispatch(loaduser(token));
+    }
+  },[]);
+
+  if (!loggedIn) {
+    return <Redirect to="/" />;
+  }
+
   const handleChange = (e) => {
-    setData(e.target.value)
-  };
-  const handleJobChange = (e) => {
-    setJob(e.target.value)
+    setId(e.target.value)
   };
 
   const handleSubmit = (e) => {
-    dispatch(loaduser(data))
+    dispatch(loadJobs(id, token))
     e.preventDefault();
   };
-
-  const handleJobSubmit = (e) => {
-    dispatch(loadJobs(job))
-    e.preventDefault();
-  };
-
 
   return (
     <div className="home border-0 rounded-0">
       <div className="card-home">
-        <h5 className="card-title">User name</h5>
         <form onSubmit={handleSubmit} >
           <div className="mb-3">
-            <label htmlFor="username">
-              Username
+            <label htmlFor="id">
+              Post ID
               <input
                 type="text"
-                name="username"
-                placeholder="username"
+                name="id"
+                placeholder="id"
                 onChange={handleChange}
-                className="form-control"
-                required
-              />
-            </label>
-          </div>
-          <button className="button" type="submit">Register</button>
-        </form>
-        <form onSubmit={handleJobSubmit} >
-          <div className="mb-3">
-            <label htmlFor="username">
-              Job
-              <input
-                type="text"
-                name="username"
-                placeholder="job"
-                onChange={handleJobChange}
                 className="form-control"
                 required
               />

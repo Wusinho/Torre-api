@@ -6,7 +6,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     loading: false,
-    list: {},
+    list: '',
     error: '',
   },
   reducers: {
@@ -21,7 +21,6 @@ export const userSlice = createSlice({
       user.error = action.payload;
       user.loading = false;
     },
-
   },
 });
 
@@ -29,17 +28,16 @@ export const {
   userReceived,
   userRequested,
   userRequestFailed,
-
 } = userSlice.actions;
 
 export default userSlice.reducer;
 
 // const url = 'https://bio.torre.co/api/bios/';
-const url = 'http://localhost:3000/strengths?name=';
+const url = 'http://localhost:3000/';
 
-export const loaduser = (username) => userInfoCallBegan({
+export const loaduser = (token) => userInfoCallBegan({
   url,
-  username,
+  token,
   onStart: userRequested.type,
   onSuccess: userReceived.type,
   onError: userRequestFailed.type,

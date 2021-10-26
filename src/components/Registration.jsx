@@ -11,8 +11,6 @@ import Loading from './Loading';
 const Registration = () => {
   const [data, setData] = useState({
     username: '',
-    name: '',
-    lastname: '',
     password: '',
     password_confirmation: '',
   });
@@ -56,32 +54,7 @@ const Registration = () => {
               />
             </label>
           </div>
-          <div className="mb-3">
-            <label htmlFor="name">
-              Name
-              <input
-                type="text"
-                name="name"
-                placeholder="name"
-                onChange={handleChange}
-                className="form-control"
-                required
-              />
-            </label>
-          </div>
-          <div className="mb-3">
-            <label htmlFor="lastname">
-              Lastname
-              <input
-                type="text"
-                name="lastname"
-                placeholder="lastname"
-                onChange={handleChange}
-                className="form-control"
-                required
-              />
-            </label>
-          </div>
+       
           <div className="mb-3">
             <label htmlFor="password">
               Password

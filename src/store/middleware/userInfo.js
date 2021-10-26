@@ -7,29 +7,23 @@ const userInfo = ({ dispatch }) => (next) => (action) => {
   if (action.type !== actions.userInfoCallBegan.type) return next(action);
 
   const {
-    url,username, onStart, onSuccess, onError,
+    url, token, onStart, onSuccess, onError,
   } = action.payload;
 
   if (onStart) dispatch({ type: onStart });
   next(action);
 
-  const formated_name = username.replace(/ /g,'').toLowerCase()
-
-  console.log(`${url}${formated_name}`)
-
   const headers = {
-    headers : 'Access-Control-Allow-Origin: *',
+    Authorization: `Bearer ${token}`,
+    'Access-Control-Allow-Origin': '*',
   };
-  // const headers = {"Allow-Control-Allow-Origin": '*'}
   
   axios
     .get(
-      `${url}${formated_name}`, 
-        {
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-          }
-        },
+      `${url}info`,
+      {
+        headers: headers
+      },
       { mode: 'cors'},
     )
     .then((response) => {
@@ -39,11 +33,9 @@ const userInfo = ({ dispatch }) => (next) => (action) => {
     .catch((error) => {
       dispatch(actions.userInfoCallFailed(error.message));
       if (onError) dispatch({ type: onError, payload: error.message });
-     
+    
     });
   
-
-
 
 };
 
