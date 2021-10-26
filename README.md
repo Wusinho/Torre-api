@@ -6,21 +6,16 @@ Atraves del Redux se puede apreciar algunos detalles de la informacion personal 
 Torre. Ademas tambien busca Post mendiante el codigo y regresa algunos detalles del Post del trabajo.
 
 ## WebSite Sections
-- Homepage, there is a small description of the project.
-![image](./src/assets/HomePage.png)
-- Champions Catalogue, here is where the api is rendering.
-![image](./src/assets/Catalogue.png)
-- Single page with the selected item information.
-![image](./src/assets/Selected.png)
+- Esta captura es el Home, con un login de inicio, si no se tiene una cuenta es necesario registrarse
+![image](./Assets/Login.png)
+
+- Una vez que se hace el login o se registra, uno puede buscar un trabajo teniendo el codigo del post
+![image](./Assets/Logged.png)
 
 
 ## Live demo
 
-[live demo](https://6144d74d4118f87127f8e629--gallant-allen-0cf0f8.netlify.app/)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/87e2870c-fd49-4ded-b5c4-cd4853958e8b/deploy-status)](https://app.netlify.com/sites/hungry-tereshkova-d0e975/deploys)
-
-
+- UNDER CONSTRUCTION
 
 ## Built With
 
@@ -36,16 +31,16 @@ Torre. Ademas tambien busca Post mendiante el codigo y regresa algunos detalles 
 ## How to start the project from your Local environment
 
 - Open your terminal and cd where you want to store the project
-- Run the following command - `git clone https://github.com/Wusinho/React-Redux-Catalogue.git `
-- Cd into the directory - `cd React-Redux-Catalogue`
+- Run the following command - `git clone https://github.com/Wusinho/Torre-api ` for front-end
+- Cd into the created directory 
 - Run `npm install` to install all dependencies
 - To run the pogram type `npm run dev` on your terminal.
 - By default it will open in google-chrome however you can configure `./config/webpack.dev` to open it another browser.
 
-- To run the tests `npm run test`
+For the purpose of the working app
 
-![image](./src/assets/Tests.png)
-
+- Create an account with the name 'heberlazo', set up a password
+- search a job post example: 'PW90Gvpr' or 'Jdm15Nyd'
 
 ## Author
 
@@ -65,7 +60,6 @@ Give a star if you :star: like this project!
 ## Acknowledgments
 
 - Microverse
-- Unsplash
 
 ## 📝 License
 
